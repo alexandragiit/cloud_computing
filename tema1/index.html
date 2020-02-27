@@ -1,0 +1,153 @@
+<html>
+<style>
+.img{
+    display:none;
+}
+</style>
+<body>
+<h1>Articole din New York Times dupa locatie</h1>
+
+<form onsubmit = "getArticles(); return false;">
+    Introdu o locatie<br>
+    <input type="text", id="locatie">
+</form>
+<div id="articol"></div>
+<img id="img"></img>
+<br>
+
+<button id="button" onclick="sendToDocs()" style="display:none; visibility:hidden;">Send to google docs</button>
+
+<button id="concurent" onclick="concurentReq()">Make concurent requests</button>
+<div id="metrics"></div>
+</body>
+<script>
+    
+    if(localStorage.getItem("counter") == null){
+        localStorage.setItem("counter", 0);
+    }
+    console.log(1 + parseInt("1"));
+    var res1, res2, nyt_url, img_url;
+    var time1, time2, endtime2, endtime1;
+    var count, title;
+    function getArticles(){
+  
+        var locatie = document.getElementById("locatie").value
+        if(locatie == ''){
+            locatie = "Kansas"
+        }
+        
+        nyt_url = "http://api.nytimes.com/svc/semantic/v2/concept/name/nytd_geo/" + locatie + "?fields=all&api-key=Z9dAxv3U1KUhjaAd9xZ74i8IMUhwGlxK"; // de pus cheia intr-un fisier
+        img_url = "http://www.splashbase.co/api/v1/images/random";
+        
+        var time1 = new Date().getTime();
+    
+  
+        fetch(nyt_url)
+        .then(response => response.json())
+        .then(data => {
+            title = data.results[0].article_list["results"][0].title;
+            res1 = "<h3>" + data.results[0].article_list["results"][0].title+ "</h3>" + "<p>" +  data.results[0].article_list["results"][0].body + "</p><a href = '" + data.results[0].article_list["results"][0].url + "'>" +  "Link care articol" + "</a>" ;
+            endtime1 = new Date().getTime() - time1;
+            document.getElementById("articol").innerHTML = res1;
+
+            time2 = new Date().getTime();
+            fetch(img_url)
+            .then(response => response.json())
+            .then(data => {
+                res2 = data.url;
+                // console.log(res2);
+                document.getElementById("img").src  = res2;
+                document.getElementById("img").style.display  = "block";
+                document.getElementById("img").style.width  = "100px";
+                // document.getElementById("img").style.height  = "200px";
+                document.getElementById("button").style.display = "block";
+                document.getElementById("button").style.visibility = "visible";
+
+                endtime2 = new Date().getTime() - time2;
+
+                count = localStorage.getItem("counter");
+                localStorage.setItem(count, JSON.stringify({req:nyt_url, res:res1, time:endtime1}));
+                localStorage.setItem("counter", (parseInt(localStorage.getItem("counter")) + 1).toString());
+
+                count = localStorage.getItem("counter");
+                localStorage.setItem(count, JSON.stringify({req:img_url, res:res2, time:endtime2}));
+                localStorage.setItem("counter", (parseInt(localStorage.getItem("counter")) + 1).toString());
+
+            })
+            .catch(err => {
+                console.log(err);
+
+            })
+        })
+        .catch(err => {
+            console.log(err);
+
+        })
+    }
+
+    function sendToDocs(){
+        fetch('http://localhost:3000/updateDocs',{
+            method: 'POST',    
+            headers: {
+                'Content-Type': 'text/html',
+                'Accept': 'text/html'
+            },
+             body: JSON.stringify({
+                article:title,
+                img: res2
+            })
+        }).then((response) => {
+            console.log(response);
+            return response.json();
+        }).then((myJson) => {
+            count = localStorage.getItem("counter");
+            
+            localStorage.setItem(count, JSON.stringify({req:"Write to google docs", res:"succes", time: JSON.stringify(myJson)}));
+            localStorage.setItem("counter", (parseInt(localStorage.getItem("counter")) + 1).toString());
+    
+            console.log(myJson);
+        }).catch(err => {
+                console.log(err);
+
+        });
+    }
+
+    function req(t1){
+        
+        return 0;
+    }
+
+    async function concurentReq(){
+        var t1, t2;
+        var times = new Array();
+       
+        req = new Array();
+
+        t1 = new Date().getTime();
+        for (let i=0; i<10; i++){
+            req[i] = fetch("http://www.splashbase.co/api/v1/images/random")
+        }
+        var met = document.getElementById("metrics");
+        var p;
+        
+         Promise.all(req).then(function(values){
+            //  console.log(values);
+            t2 = new Date().getTime() - t1;
+            p = document.createElement("p");
+            p.innerHTML = "The time for 50 request in parallel: " + t2.toString() + " ms";
+            met.appendChild(p);
+            console.log(t2);
+            for(let i = 0; i<10; i++){
+                console.log(req[i]);
+            }
+         })
+
+        
+         
+        // console.log(times);
+        // console.log("test");
+        
+
+    }
+</script>
+</html>

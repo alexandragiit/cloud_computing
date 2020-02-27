@@ -1,0 +1,36 @@
+<html>
+<body>
+<h1> METRICS</h1>
+
+<div id="res">
+
+
+</div>
+
+</body>
+
+<script>
+    var info;
+    var newReq;
+    for(let i = 0; i<localStorage.getItem("counter"); i++){
+ 
+        var ul = document.createElement("ul");
+        document.getElementById("res").appendChild(ul);
+
+        newReq = document.createElement("li");
+        newReq.innerHTML = "Request: " + JSON.parse(localStorage.getItem(i.toString())).req;
+        ul.appendChild(newReq);
+
+        newReq = document.createElement("li");
+        newReq.innerHTML = "Response: " + JSON.parse(localStorage.getItem(i.toString())).res;
+        ul.appendChild(newReq);
+
+        newReq = document.createElement("li");
+        newReq.innerHTML = "Latency time: " + JSON.parse(localStorage.getItem(i.toString())).time;
+        ul.appendChild(newReq);
+
+        console.log(JSON.parse(localStorage.getItem(i.toString())));
+    }
+    
+</script>
+</html>
