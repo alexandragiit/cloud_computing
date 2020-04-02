@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom</title>
+   
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+     <div class="all-subjects">
+        <button class="subject" onclick=window.location.href="../courses/android">
+            Android
+        </button>
+
+        <button class="subject" onclick=window.location.href="">
+            Cloud
+        </a>
+
+        <button class="subject" onclick=window.location.href="">
+            Computer networks
+        </button>
+
+        <button class="subject" onclick=window.location.href="">
+            .NET
+        </button>
+
+        <button class="subject" onclick=window.location.href="">
+            OOP
+        </button>
+
+        <button class="subject" onclick=window.location.href="">
+            Java
+        </button>
+    </div>
+</body>
+<script src = "{{ url_for('static', filename='script.js') }}"></script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom</title>
+   
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="unit">
+        <button id="convert">convert to text</button>
+        <div id="main-resource"> <p id = 'text'>Translate this text or read it</p></div>
+        Choose image to convert to text
+        <input type='file' name='inpFile', id='inpFile'> 
+   
+    </div>
+    
+    <div class="unit">
+        <button id="translate">translate your text</button>
+        <select id='language'>
+            <option value="english">Germana</option>
+        </select>
+        <p id = "translated"></p>
+    </div>
+
+    <div class="unit">
+        <button id="tts">read lecture out loud</button>
+        <figure>
+            <figcaption>Listen to the the lecture:</figcaption>
+            <audio id="audio"
+                controls
+                src="https://glpro.s3.amazonaws.com/_util/smpte/111.mp3">
+                    Your browser does not support the
+                    <code>audio</code> element.
+            </audio>
+        </figure>
+    </div>
+
+    <div class="unit">
+        <button id="stt">convert to text</button>
+        Choose audio file to convert to text
+        <input type='file' name='audioFile', id='audioFile'> 
+        <p id ='stt-text'>Empty for now..</p>
+    
+    </div>
+    
+    
+</body>
+<script src = "{{ url_for('static', filename='script_course.js') }}"></script>
+</html>
+

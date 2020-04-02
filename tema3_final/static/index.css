@@ -1,0 +1,24 @@
+body {
+    box-sizing: border-box;
+    height: 95vh;
+}
+
+.all-subjects {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.subject {
+    background-color: teal;
+    color: antiquewhite;
+    margin: 10px;
+    text-align: center;
+    font-size: 30px;
+    width: 30%;
+}
+
+.subject:hover {
+    background-color: blueviolet;
+}
