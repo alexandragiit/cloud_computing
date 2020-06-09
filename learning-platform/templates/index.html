@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <title>Datastore and Firebase Auth Example</title>
+  <link rel = "stylesheet" href="{{url_for('static', filename='css/style.css') }}">  
+</head>
+<body>
+
+  <ul id = "top">
+    <li><a href="/">Home</a></li>
+    <li><a href="/lesson">Resources</a></li>
+    <li><a href="#">MyLibrary</a></li>
+
+    <li><a href="/login">Login/Register</a></li>
+  </ul>
+
+
+  <h1>Welcome to our learning platfrom</h1>
+  
+
+  <div id = "courses-container">
+
+    
+  </div>
+
+
+<!-- <form method="POST" action="/add"> 
+  course name<input id= "name" name = "name"><br>
+  description<input id= "desc" name = "desc"><br>
+  <button>Add Course</button>
+</form> -->
+
+
+
+
+
+
+
+
+<!-- <p>{{ result['translatedText'] }}</p> -->
+<!-- 
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+  <script>
+  
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB0RbbesPeIe7M2CXwzF6XiFfhNeUXCl1M",
+    authDomain: "learning-online-plt.firebaseapp.com",
+    databaseURL: "https://learning-online-plt.firebaseio.com",
+    projectId: "learning-online-plt",
+    storageBucket: "learning-online-plt.appspot.com",
+    messagingSenderId: "621618566473",
+    appId: "1:621618566473:web:43a3fdcaf545c6c5cfb698",
+    measurementId: "G-XWZG3Y3TLZ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  </script> -->
+
+<script type="module" src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>

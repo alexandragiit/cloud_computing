@@ -1,0 +1,33 @@
+{   
+    "tile": "Lesson2 Title", 
+    "video": "Video id bucket",
+    "summary": "summary",
+    "blocks": [
+        { "title" : "Titlu Paragraf",
+          "paragraphs": [ {"text":"A summary is a condensed version of an original text, usually a full article or book. Summaries are usually around a paragraph long, and may even be a few paragraphs long depending on the length of the work being condensed."},
+                            {"img" : "id of image in bucket"},
+                            {"text":"A summary is a condensed version of an original text, usually a full article or book. Summaries are usually around a paragraph long, and may even be a few paragraphs long depending on the length of the work being condensed."},
+                            {"text":"A summary is a condensed version of an original text, usually a full article or book. Summaries are usually around a paragraph long, and may even be a few paragraphs long depending on the length of the work being condensed."}
+                        ]
+        
+        },
+        { "title" : "Titlu Paragraf",
+            "paragraphs": [ {"text":"A summary is a condensed version of an original text, usually a full article or book. Summaries are usually around a paragraph long, and may even be a few paragraphs long depending on the length of the work being condensed."},
+                              {"img" : "id of image in bucket"},
+                              {"text":"A summary is a condensed version of an original text, usually a full article or book. Summaries are usually around a paragraph long, and may even be a few paragraphs long depending on the length of the work being condensed."},
+                              {"text":"A summary is a condensed version of an original text, usually a full article or book. Summaries are usually around a paragraph long, and may even be a few paragraphs long depending on the length of the work being condensed."}
+                          ]
+          
+          },
+          { "title" : "Titlu Paragraf",
+            "paragraphs": [ {"text":"A summary is a condensed version of an original text, usually a full article or book. Summaries are usually around a paragraph long, and may even be a few paragraphs long depending on the length of the work being condensed."},
+                              {"img" : "id of image in bucket"},
+                              {"text":"A summary is a condensed version of an original text, usually a full article or book. Summaries are usually around a paragraph long, and may even be a few paragraphs long depending on the length of the work being condensed."},
+                              {"text":"A summary is a condensed version of an original text, usually a full article or book. Summaries are usually around a paragraph long, and may even be a few paragraphs long depending on the length of the work being condensed."}
+                          ]
+          
+          }
+    
+    ]
+
+}
